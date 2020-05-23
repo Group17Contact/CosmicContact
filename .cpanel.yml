@@ -1,4 +1,4 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=$HOME/le_oof/
+    - export DEPLOYPATH=$HOME/public_html/
     - /bin/cp -R ./ $DEPLOYPATH
