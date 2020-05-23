@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/le_oof/
+    - /bin/cp -R ./ $DEPLOYPATH
