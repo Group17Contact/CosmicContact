@@ -1,0 +1,38 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url('messier.jpg');
+    /* background: radial-gradient(transparent, black 150%), url('hubble-space-galaxy.jpg'); */
+    margin: 0;
+}
+
+h3 {
+    color: whitesmoke;
+    font-family: 'Bangers', cursive;
+    position: fixed;
+    display:inline-block;
+    left: 1.5%;
+}
+
+.searchBar {
+    border-radius: 60px;
+    font-family: 'Play', sans-serif;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    margin-top: 17px;
+    text-align: center;
+    opacity: 1;
+}
+
+.navBar {
+    position: fixed;
+    height: 55px;
+    width: 100%;
+    background-color: #9a1f40;
+    opacity: .5;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
