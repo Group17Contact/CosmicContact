@@ -75,6 +75,9 @@ input {
     border-color: black;
 
 }
+.Sign-in:hover {
+    background-color: #1eff16;
+}
 
 .Register {
     border-radius: 10px;
@@ -87,6 +90,11 @@ input {
     border-style: solid;
     border-width: 3px;
     border-color: black;
+}
+
+.Register:hover {
+    background-color: #f9fd1a;
+
 }
 
 form {
