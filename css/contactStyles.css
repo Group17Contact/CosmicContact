@@ -14,6 +14,46 @@ h3 {
     position: fixed;
     display:inline-block;
     left: 1.5%;
+    text-shadow: 1px 1px 5px black;
+}
+
+button {
+    border-radius: 10px;
+    width: 10%;
+    height: 37px;
+    margin-top: 10px;
+    font-family: 'Play', sans-serif;
+    font-size: larger;
+    background-color: #ca1e1e;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    position: fixed;
+    right: 1%;
+}
+button:hover {
+    background-color: #f32323;  
+}
+
+.createContact {
+    right: 11%;
+    background-color: #f3c623;
+    font-size: medium;
+    margin-right: 1%;
+}
+.createContact:hover {
+    background-color: #f9fd1a;
+}
+
+.searchButton {
+    right: 37.5%;
+    background-color: #79d70f;
+    width: 7%;
+    /* background-image: url('rocketBlack.png'); */
+}
+
+.searchButton:hover {
+    background-color: #1eff16;
 }
 
 .searchBar {
@@ -22,9 +62,15 @@ h3 {
     border-style: solid;
     border-width: 3px;
     border-color: black;
-    margin-top: 17px;
+    margin-top: 18px;
     text-align: center;
-    opacity: 1;
+    position: fixed;
+    margin-left: 25%;
+    margin-top: 18px;
+    width: 30%;
+    height: 22px;
+    margin-top: 15px;
+    font-size: larger;
 }
 
 .navBar {
