@@ -1,140 +1,95 @@
-body 
-{
-    background-color: #707070;
+html {
+    height: 100%;
 }
 
-#title 
-{
-    font-size: 40px;
+body {
+    background-image : url('Jupiter.png');
+    margin: 0;
+}
+
+h1 {
+    color: white;
+    font-family: 'Bangers', cursive;
+    opacity: 1;
+    font-size: 47px;
+}
+
+input {
+    margin: 15px;
+    
+}
+
+.Center {
+    align-items: center;
+    
+}
+
+.Rectangle {
+    
+    text-align: center;
+    background-color: #00005c;
+    opacity: .6;
+    padding: 50px;
+    margin: 15% 25% 0%;
+    border-radius: 40px;
+}
+
+.Username {
+    border-radius: 60px;
     width: 100%;
-    margin: 2% 5%;
+    height: 35px;
     text-align: center;
-    font-family: 'Ubuntu', sans-serif;
-    color: #FFFFFF;
+    font-family: 'Play', sans-serif;
+    font-size: x-large;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    position: relative;
+    right: 17px;
 }
 
-#loginDiv
-{
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #b2b2b2;
-}
-
-#loggedInDiv
-{
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #b2b2b2;
-}
-
-#accessUIDiv
-{
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #b2b2b2;
-}
-
-.buttons
-{
-    font-size: 30px;
-    border-radius: 25px;
-    width: 50%;
-    margin-left: 25%;
-    font-family: 'Ubuntu', sans-serif;
-}
-
-.buttons:hover{
-    background-color: #00d5124f;
-    color: #FFFFFF;
-    opacity: 50%;
-}
-
-#loginName
-{
-	font-size: 30px;
-}
-#loginPassword
-{
-	font-size: 30px;
-}
-#searchText
-{
-	font-size: 30px;
-}
-#colorText
-{
-	font-size: 30px;
-}
-
-input[type="text"],input[type="password"]{
-    border-radius: 25px;
+.Password {
+    border-radius: 60px;
+    width: 100%;
+    height: 35px;
     text-align: center;
-    width: 80%;
-    margin-left: 10%;
-    margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Play', sans-serif;
+    font-size: x-large;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    position: relative;
+    right: 17px;
 }
 
-#inner-title{
-    display: inline-block;
-    font-size: 0.8em;
-    width: 90%;
-    text-align: center;
-    margin-left: 5%;
-    margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #95060a;
+.Sign-in {
+    border-radius: 10px;
+    width: 40%;
+    height: 50px;
+    margin-top: 10px;
+    font-family: 'Play', sans-serif;
+    font-size: x-large;
+    background-color: #79d70f;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+
 }
 
-#loginResult{
-    display: inline-block;
-    font-size: 0.8em;
-    width: 90%;
-    text-align: center;
-    margin-left: 5%;
-    margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #95060a;
+.Register {
+    border-radius: 10px;
+    width: 40%;
+    height: 50px;
+    margin-top: 10px;
+    font-family: 'Play', sans-serif;
+    font-size: x-large;
+    background-color: #f3c623;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
 }
 
-#userName{
-    display: inline-block;
-    width: 80%;
-    margin-left: 10%;
-    text-align: center;
-}
-
-#logoutButton{
-    width: 20%;
-    margin-left: 40%;
-}
-
-select{
-    width: 30%;
-    margin-left: 35%;
-    margin-top: 2%;
-    font-size: 0.75em;
-    font-family: 'Ubuntu', sans-serif;
-}
-
-#colorSearchResult{
-    display: none;
-}
-
-#colorAddResult{
-    display: inline-block;
-    font-size: 0.8em;
-    width: 90%;
-    text-align: center;
-    margin-left: 5%;
-    margin-top: 2%;
-    margin-bottom: 1%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #95060a;
+form {
+    opacity: 1;
+    
 }
