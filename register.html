@@ -5,6 +5,7 @@
         <title>Registration</title>
         <link rel = "stylesheet" href = "css/registerStyles.css">
         <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Play:wght@400;700&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="js/code.js"></script>
     </head>
     <body>
         <div class = "Rectangle"></div>
@@ -23,7 +24,9 @@
             <p class = "password">Password:</p>
             <input id = "userPassword" type = "password">
             <br>
-            <button id = "createAccount">Create Account</button>
+            <button id = "createAccount" onclick="doRegistration(); return false;">Create Account</button>
+            <div id="loginResult"></div>
         </form>
+        
     </body>
 </html>

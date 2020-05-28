@@ -86,3 +86,9 @@ h1 {
     margin-right: 10px;
     margin-left: 54px;
 }
+
+
+#loginResult {
+    font-size: xx-large;
+    color: red;
+}

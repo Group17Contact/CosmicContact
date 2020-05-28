@@ -93,32 +93,32 @@ function doRegistration()
    // Prep for sending the json payload to the server
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	xhr.setRequestHeader("Content-type", "application/json");
 
 	try
 	{
       xhr.onreadystatechange = function()
 		{
-			if (this.readyState == 4 && this.status == 200)
-			{
+			if (this.readyState !== 4)
+				return;
+			
             // Parse the response from the server
-            var jsonObject = JSON.parse(xhr.responseText);
+			var jsonObject = JSON.parse(xhr.responseText);
+			if (this.status !== 200)
+			{
+				document.getElementById("loginResult").innerHTML = jsonObject.error;
+            	return;
+			}
 
             // Set the userId and check to make sure it was changed, if so, print error and return
             userId = jsonObject.userId;
-            if (userId < 1)
-            {
-               document.getElementById("loginResult").innerHTML = jsonObject.error;
-               return;
-            }
 
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
+			//firstName = jsonObject.firstName;
+			//lastName = jsonObject.lastName;
 
-				saveCookie();
+			saveCookie();
 
-				window.location.href = "contacts.html";
-			}
+			window.location.href = "contacts.html";
 		};
 
 		// Send the json payload to the server
