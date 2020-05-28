@@ -4,7 +4,6 @@ html {
 
 body {
     background-image: url('messier.jpg');
-    /* background: radial-gradient(transparent, black 150%), url('hubble-space-galaxy.jpg'); */
     margin: 0;
 }
 
@@ -46,7 +45,7 @@ button:hover {
 }
 
 .searchButton {
-    right: 37.5%;
+    right: 37.1%;
     background-color: #79d70f;
     width: 7%;
     /* background-image: url('rocketBlack.png'); */
@@ -81,4 +80,8 @@ button:hover {
     opacity: .5;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
+}
+
+.bodyBackground {
+    background-image: url('SolarFull_SeanDoran_2880FullwidthLede.jpg');
 }
