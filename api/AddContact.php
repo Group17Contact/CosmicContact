@@ -40,7 +40,6 @@
     else
     {
         header('Content-type: application/json');
-        //echo '{"Message":"Contact successfully added!!"}';
         echo '{"Message":  "'. $firstname .'  '.$lastname . ' was successfully added!!"}';
         $conn->close();
     }
