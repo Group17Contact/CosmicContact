@@ -66,7 +66,7 @@ function doLogout()
 {
 	userId = 0;
 	document.getElementById("username").value = "";
-   document.getElementById("userPassword").value = "";
+	document.getElementById("userPassword").value = "";
 	document.getElementById("firstName").value = "";
 	document.getElementById("lastName").value = "";
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
@@ -86,7 +86,7 @@ function doRegistration()
 	var password = document.getElementById("userPassword").value;
 
    // Setup the json that will be sent to the server and the url
-   var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "username" : "' + username + '", "userPassword" : "' + password + '"}';
+   var jsonPayload = JSON.stringify({firstName:firstName, lastName:lastName, username:username, password:password});
 	var url = urlBase + '/api/Register.' + extension;
 
    // Prep for sending the json payload to the server
