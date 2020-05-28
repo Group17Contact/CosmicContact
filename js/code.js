@@ -12,44 +12,45 @@ function doLogIn()
 	document.getElementById("loginResult").innerHTML = "";
 
 	// Get the username and password typed in by the user
-	var username = document.getElementById("username").value;
-	var password = document.getElementById("userPassword").value;
+	var username = document.getElementById("loginName").value;
+	var password = document.getElementById("loginPassword").value;
 	//var hash = md5( password );
 
 	// Setup the json that will be sent to the server and the url
 	//var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
-	var jsonPayload = JSON.stringify({login:username, password:userPassword});
+	var jsonPayload = JSON.stringify({username:username, password:password});
 	var url = urlBase + '/api/Login.' + extension;
 
 	// Prep for sending the json payload to the server
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	xhr.setRequestHeader("Content-type", "application/json");
 
 	try
 	{
 		xhr.onreadystatechange = function()
 		{
-			if (this.readyState == 4 && this.status == 200)
-			{
-				// Parse the response from the server
+			if (this.readyState !== 4)
+				return;
 				var jsonObject = JSON.parse(xhr.responseText);
-
-				// Set the userId and check to make sure it was changed, if so, print the error and return
-				userId = jsonObject.userId;
-				if (userId < 1)
-				{
-					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
-					return;
-				}
-
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
-
-				saveCookie();
-
-				location.href = "contacts.html";
+			if (this.status !== 200)
+			{
+				document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+				return;
 			}
+
+			// Parse the response from the server
+			
+
+			// Set the userId and check to make sure it was changed, if so, print the error and return
+			userId = jsonObject.userId;
+
+			firstName = jsonObject.firstName;
+			lastName = jsonObject.lastName;
+
+			saveCookie();
+
+			location.href = "contacts.html";
 		};
 
 		// Send the json payload to the server
