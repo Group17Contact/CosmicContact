@@ -2,14 +2,22 @@
 <html>
     <head>
         <meta charset = "utf-8">
-        <title>Registration</title>
-        <link rel = "stylesheet" href = "CSS/registerStyles.css">
+        <title>CosmicContact.space</title>
+        <!-- <link rel = "stylesheet" href = "CSS/styles.css"> -->
+        <link rel = "stylesheet" href = "CSS/contactStyles.css">
         <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Play:wght@400;700&display=swap" rel="stylesheet">
+        <!--<link rel = "icon" href = "">-->
     </head>
-    <body>
+    <body class = "bodyBackground">
+        <div class = "navBar"></div>
+        <h3>Hello<em>"User Name Here"</em></h3>
+        <a href = "contacts.html">
+            <button class = "return">Return to contacts</button>
+        </a>
+        <button>Sign out</button>
         <div class = "Rectangle"></div>
         <form>
-            <h1>Registration Page</h1>
+            <h1>Add your contact</h1>
             <br>
             <p>First name:</p>
             <input id = "firstName" type = "text">
@@ -23,7 +31,7 @@
             <p class = "password">Password:</p>
             <input id = "userPassword" type = "password">
             <br>
-            <button id = "createAccount">Create Account</button>
+            <button class = "addContact" id = "addContact">Add contact</button>
         </form>
     </body>
 </html>
