@@ -18,7 +18,7 @@ function doLogIn()
 
 	// Setup the json that will be sent to the server and the url
 	//var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
-	var jsonPayload = '{"username" : "' + username + '", "userPassword" : "' + password + '"}';
+	var jsonPayload = JSON.stringify({login:username, password:userPassword});
 	var url = urlBase + '/api/Login.' + extension;
 
 	// Prep for sending the json payload to the server
@@ -48,7 +48,7 @@ function doLogIn()
 
 				saveCookie();
 
-				window.location.href = "contacts.html";
+				location.href = "contacts.html";
 			}
 		};
 
