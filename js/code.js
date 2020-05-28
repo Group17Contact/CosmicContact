@@ -87,7 +87,7 @@ function doRegistration()
 
    // Setup the json that will be sent to the server and the url
    var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "username" : "' + username + '", "userPassword" : "' + password + '"}';
-	var url = urlBase + '/api/signup.' + extension;
+	var url = urlBase + '/api/Register.' + extension;
 
    // Prep for sending the json payload to the server
 	var xhr = new XMLHttpRequest();
