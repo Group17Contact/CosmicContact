@@ -1,4 +1,4 @@
-var urlBase = 'http://cosmiccontact.space';
+var urlBase = 'http://cosmiccontact.space/';
 var extension = 'php';
 
 var userId = 0;

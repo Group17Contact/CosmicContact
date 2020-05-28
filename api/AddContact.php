@@ -1,4 +1,4 @@
-<?php 
+<?php
     // 1 - Request Info
     $inData = getRequestInfo();
 
@@ -23,9 +23,9 @@
     else
     {
         // Generate SQL code to add the contact to the database
-        $sql = "INSERT INTO Contacts(first_name, last_name, email, phone, user_id) 
+        $sql = "INSERT INTO Contacts(first_name, last_name, email, phone, user_id)
                 VALUES ('" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $phone . "', " . $userID . ")";
-                        
+
     }
 
     // 5 -Check if contact was added
@@ -36,7 +36,7 @@
         echo '{"Error Message":"' . $conn->error . '"}';
         $conn->close();
     }
-    // Contact was added successfully 
+    // Contact was added successfully
     else
     {
         header('Content-type: application/json');
