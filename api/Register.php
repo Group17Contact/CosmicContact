@@ -57,7 +57,7 @@
 
 	// Connect to the MySQL server. (host, username, password, database)
 	// TODO: Move the database info to a config file
-	$conn = new mysqli("localhost", "cosmiccontact", "<password>", "cosmiccontact");
+	$conn = new mysqli("localhost", "nas", "sx1qJa3kO8A#", "cosmiccontact");
 
 	// Check for errors connecting to the MySQL database
 	if ($conn->connect_error) {

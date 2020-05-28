@@ -16,7 +16,7 @@
 
 	// Read in the JSON payload sent by the client
 	$inData = getRequestInfo();
-	
+
 	// Check if the JSON is missing or invalid
 	if (!isset($inData)) {
 		echoErrorJson("Missing JSON");
@@ -42,14 +42,14 @@
 
 	// Connect to the MySQL server. (host, username, password, database)
 	// TODO: Move the database info to a config file
-	$conn = new mysqli("localhost", "cosmiccontact", "<password>", "cosmiccontact");
+	$conn = new mysqli("localhost", "nas", "sx1qJa3kO8A#", "cosmiccontact");
 
 	// Check for errors connecting to the MySQL database
 	if ($conn->connect_error) {
 		echoErrorJson("Database error");
 		http_response_code(503);
 		return;
-	} 
+	}
 
 	// Set up a query. We will substitute a username in place of the "?"
 	$stmt = $conn->prepare("select user_id, password from Users where login=?");
@@ -103,7 +103,7 @@
 	// Return some basic info as JSON
 	echo json_encode(["success" => true, "userId" => $userId]);
 
-	
+
 	// This function was provided by Rick Leinecker
 	function getRequestInfo() {
 		return json_decode(file_get_contents('php://input'), true);
