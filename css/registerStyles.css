@@ -35,7 +35,8 @@ input {
 }
 
 input:hover {
-    border-width: 10px;}
+    border-width: 10px;
+}
 
 button {
     border-radius: 10px;

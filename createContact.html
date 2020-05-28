@@ -9,12 +9,29 @@
         <!--<link rel = "icon" href = "">-->
     </head>
     <body class = "bodyBackground">
-        <div class = "navBar">
-        </div>
+        <div class = "navBar"></div>
         <h3>Hello<em>"User Name Here"</em></h3>
-        <input class = "searchBar" type = "text" placeholder = "Search your contacts">
-        <button class = "searchButton">Search</button>
-        <button class = "createContact">Create Contact</button>
+        <a href = "contacts.html">
+            <button class = "return">Return to contacts</button>
+        </a>
         <button>Sign out</button>
+        <div class = "Rectangle"></div>
+        <form>
+            <h1>Add your contact</h1>
+            <br>
+            <p>First name:</p>
+            <input id = "firstName" type = "text">
+            <br>
+            <p>Last name:</p>
+            <input id = "lastName" type = "text">
+            <br>
+            <p>Username:</p>
+            <input id = "username" type = "text">
+            <br>
+            <p class = "password">Password:</p>
+            <input id = "userPassword" type = "password">
+            <br>
+            <button class = "addContact" id = "addContact">Add contact</button>
+        </form>
     </body>
 </html>
