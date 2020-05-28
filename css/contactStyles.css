@@ -147,7 +147,7 @@ h1 {
     right: 39.5%;
 }
 
-input:hover {
+.bar:hover {
     border-width: 10px;
 }
 
