@@ -66,10 +66,11 @@ function doLogIn()
 function doLogout()
 {
 	userId = 0;
-	document.getElementById("username").value = "";
-	document.getElementById("userPassword").value = "";
-	document.getElementById("firstName").value = "";
-	document.getElementById("lastName").value = "";
+	// TODO: Send a hit to logout endpoint
+	//document.getElementById("username").value = "";
+	//document.getElementById("userPassword").value = "";
+	//document.getElementById("firstName").value = "";
+	//document.getElementById("lastName").value = "";
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
 }
