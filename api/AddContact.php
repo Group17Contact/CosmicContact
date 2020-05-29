@@ -8,7 +8,7 @@
     $lastname = $inData["lastname"];
     $email = $inData["email"];
     $phone = $inData["phone"];
-		$date = date("Y/m/d");
+    $date = date("Y/m/d");
 
     // 3 - Create a connection to the database (localhost, username, password, database name)
     $conn = new mysqli("localhost", "nas", "sx1qJa3kO8A#", "cosmiccontact");
