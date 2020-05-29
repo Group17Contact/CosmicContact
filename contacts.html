@@ -1,18 +1,20 @@
+<!-- contacts.html is the page that displays all the users recorded contacts. It also allows the user to delete, search, and create contacts.
+     The CSS file used is contactStyles and there is a link tag that imports some fonts from google fonts. -->
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset = "utf-8">
         <title>CosmicContact.space</title>
-        <!-- <link rel = "stylesheet" href = "CSS/styles.css"> -->
         <link rel = "stylesheet" href = "CSS/contactStyles.css">
         <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Play:wght@400;700&display=swap" rel="stylesheet">
-        <!--<link rel = "icon" href = "">-->
+        <link rel = "icon" href = "favicon.ico">
     </head>
     <body>
         <div onclick = "appear()" class = "Rectangle2"></div>
         <div class = "navBar">
         </div>
-        <h3>Hello<em>"User Name Here"</em></h3>
+        <h3>Hello<em id = Greating> Moises</em></h3>
         <input class = "searchBar" type = "text" placeholder = "Search your contacts">
         <button class = "searchButton">Search</button>
         <a href = "createContact.html">
@@ -20,6 +22,35 @@
 
         </a>
         <button onclick = "doLogout()">Sign out</button>
+        <div style="width:400px; height:150px; line-height:3em; overflow:auto; padding:5px; background-color: white; position: absolute; top: 100px;">
+            One small line of text.
+            <table>
+                <tr>
+                    <td>HELLO</td>
+                    <td>HELLO</td>
+                    <td>HELLO</td>
+                    <td>HELLO</td>
+                </tr>
+                <tr>
+                    <td>HELLO</td>
+                    <td>HELLO</td>
+                    <td>HELLO</td>
+                    <td>HELLO</td>
+                </tr>
+                <tr>
+                    <td>HELLO</td>
+                    <td>HELLO</td>
+                    <td>HELLO</td>
+                    <td>HELLO</td>
+                </tr>
+                <tr>
+                    <td>HELLO</td>
+                    <td>HELLO</td>
+                    <td>HELLO</td>
+                    <td>HELLO</td>
+                </tr>
+            </table>
+        </div>
         <!-- <Script>
             function appearP()
             {
