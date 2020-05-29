@@ -40,7 +40,7 @@ function doLogIn()
 			}
 
 			// Parse the response from the server
-			
+
 
 			// Set the userId and check to make sure it was changed, if so, print the error and return
 			userId = jsonObject.userId;
@@ -102,7 +102,7 @@ function doRegistration()
 		{
 			if (this.readyState !== 4)
 				return;
-			
+
             // Parse the response from the server
 			var jsonObject = JSON.parse(xhr.responseText);
 			if (this.status !== 200)
@@ -183,7 +183,7 @@ function addContact()
 
    // Prepare to send the contact info to the server
    var jsonPayload = '{"cFirstName" : "' + cFName + '", "cLastName" : "' + cLName + '", "cPhoneNum" : "' + cPhoneNum + '", "cEmail" : "' + cEmail + '", "userId" : "' + userId + '"}';
-   var url = urlBase + '/api/createContact.' + extension;
+   var url = urlBase + '/api/AddContact.' + extension;
 
    // Create and open a connection to the server
    var xhr = new XMLHttpRequest();
@@ -199,7 +199,7 @@ function addContact()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-            var table = document.getElementById('gibberish');
+            var table = document.getElementById('table');
             var tr = document.createElement("tr");
 
             tr.innerHTML = '<td>' + document.getElementById("cFirstName").value + '</td>' +
