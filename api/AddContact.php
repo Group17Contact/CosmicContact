@@ -13,8 +13,6 @@
     // 3 - Create a connection to the database (localhost, username, password, database name)
     $conn = new mysqli("localhost", "nas", "sx1qJa3kO8A#", "cosmiccontact");
 
-
-
     // 4 - Check Connection
     // Connection Failed
     if ($conn->connect_error)
