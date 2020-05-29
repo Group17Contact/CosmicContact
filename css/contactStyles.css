@@ -99,7 +99,7 @@ button:hover {
 .Rectangle {
     text-align: center;
     position: absolute;
-    width: 50%;
+    width: 55%;
     height: 450px;
     margin: auto;
     top: 215px;
@@ -112,13 +112,29 @@ button:hover {
     padding-left: 0px;
     right: 0px;
 }
+.Rectangle2 {
+    top: 55px;
+    text-align: center;
+    position: absolute;
+    opacity: .3;
+    width: 50%;
+    height: 924px;
+    margin: auto;
+    background-color: #00005c;
+    padding: 50px;
+    left: 10px;
+    padding-left: 0px;
+    right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
 
 .email {
     margin-right: 10px;
     margin-left: 54px;
 }
 
-.password {
+.phone {
     margin-left: 5px;
 }
 
@@ -176,4 +192,8 @@ p {
     font-size: x-large;
     color: whitesmoke;
     margin-right: 10px;
+}
+
+.email {
+    margin-left: 53px;
 }
