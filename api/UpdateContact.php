@@ -1,4 +1,4 @@
-<?php 
+<?php
         // 1 - Request Info
         $inData = getRequestInfo();
 
@@ -12,10 +12,10 @@
         $lastnamenew = $inData["lastnamenew"];
         $emailnew = $inData["emailnew"];
         $phonenew = $inData["phonenew"];
-    
+
         // 3 - Create a connection to the database (localhost, username, password, database name)
         $conn = new mysqli("localhost", "nas", "sx1qJa3kO8A#", "cosmiccontact");
-    
+
         // 4 - Check Connection
         // Connection Failed
         if ($conn->connect_error)
@@ -27,7 +27,7 @@
         else
         {
             // Generate SQL code to update the contact in the database
-            $sql = "UPDATE Contacts 
+            $sql = "UPDATE Contacts
                     SET first_name = '" . $firstnamenew . "' , last_name = '" . $lastnamenew . "' , email = '" . $emailnew . "' , phone = '" . $phonenew . "'
                     WHERE first_name = '" . $firstname . "' AND last_name = '" . $lastname . "' AND email = '" . $email . "' AND phone = '" . $phone . "' AND user_Id = " . $userID . "";
         }
@@ -40,11 +40,11 @@
         echo '{"Error Message":"' . $conn->error . '"}';
         $conn->close();
     }
-    // Contact was updated successfully 
+    // Contact was updated successfully
     else
     {
         header('Content-type: application/json');
-        echo '{"Message":  "'. $firstnamenew .'  '.$lastnamenew . ' was successfully updated!!"}';
+        echo '{"Message":  "'. $firstname .'  '.$lastname . ' was successfully updated to '. $firstnamenew .' '.$lastnamenew.'!!"}';
         $conn->close();
     }
 
