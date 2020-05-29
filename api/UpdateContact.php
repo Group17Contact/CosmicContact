@@ -26,10 +26,28 @@
         // Connection is successful
         else
         {
-            // Generate SQL code to update the contact in the database
-            $sql = "UPDATE Contacts
-                    SET first_name = '" . $firstnamenew . "' , last_name = '" . $lastnamenew . "' , email = '" . $emailnew . "' , phone = '" . $phonenew . "'
-                    WHERE first_name = '" . $firstname . "' AND last_name = '" . $lastname . "' AND email = '" . $email . "' AND phone = '" . $phone . "' AND user_Id = " . $userID . "";
+          // Checking if the contact exists before we attempt to update it.
+						$sql = "SELECT *
+                FROM Contacts
+                WHERE user_id = " . $userID . "
+                AND first_name = '" . $firstname . "' AND last_name = '" . $lastname . "' AND email = '" . $email . "' AND phone = '" . $phone . "' ";
+
+						$result = $conn->query($sql);
+
+						if ($result->num_rows == 0)
+						{
+							 header('Content-type: application/json');
+							 echo '{"Message":  "'. $firstname .'  '.$lastname . ' does not exist in your list"}';
+							 $conn->close();
+							 return;
+						}
+            // If it exists, we create the SQL code to update it.
+						else
+						{
+							$sql = "UPDATE Contacts
+							SET first_name = '" . $firstnamenew . "' , last_name = '" . $lastnamenew . "' , email = '" . $emailnew . "' , phone = '" . $phonenew . "'
+							WHERE first_name = '" . $firstname . "' AND last_name = '" . $lastname . "' AND email = '" . $email . "' AND phone = '" . $phone . "' AND user_Id = " . $userID . "";
+						}
         }
 
 // 5 -Check if contact was updated
