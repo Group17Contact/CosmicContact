@@ -8,6 +8,7 @@
     $lastname = $inData["lastname"];
     $email = $inData["email"];
     $phone = $inData["phone"];
+		$date = date("Y/m/d");
 
     // 3 - Create a connection to the database (localhost, username, password, database name)
     $conn = new mysqli("localhost", "nas", "sx1qJa3kO8A#", "cosmiccontact");
@@ -45,8 +46,8 @@
         else
         {
             // Generate SQL code to add the contact to the database
-            $sql = "INSERT INTO Contacts(first_name, last_name, email, phone, user_id)
-                    VALUES ('" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $phone . "', '" . $userID . "')";
+            $sql = "INSERT INTO Contacts(first_name, last_name, email, phone, user_id, date)
+                    VALUES ('" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $phone . "', '" . $userID . "', '" . $date . "')";
         }
 
     }
@@ -63,7 +64,7 @@
     else
     {
         header('Content-type: application/json');
-        echo '{"Message":  "'. $firstname .'  '.$lastname . ' was successfully added!!"}';
+        echo '{"Message":  "'. $firstname .'  '.$lastname . ' was successfully added on ' . $date . '!!"}';
         $conn->close();
     }
 
