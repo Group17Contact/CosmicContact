@@ -1,4 +1,4 @@
-<?php 
+<?php
     // 1 - Request Info
     $inData = getRequestInfo();
 
@@ -11,6 +11,8 @@
 
     // 3 - Create a connection to the database (localhost, username, password, database name)
     $conn = new mysqli("localhost", "nas", "sx1qJa3kO8A#", "cosmiccontact");
+
+
 
     // 4 - Check Connection
     // Connection Failed
@@ -25,9 +27,9 @@
         // Check of contact is already on the list
         $sql = "SELECT *
                 FROM Contacts
-                WHERE user_id = " . $userID . " 
+                WHERE user_id = " . $userID . "
                 AND first_name = '" . $firstname . "' AND last_name = '" . $lastname . "' AND email = '" . $email . "' AND phone = '" . $phone . "' ";
-        
+
         // Get the result of the search
         $result = $conn->query($sql);
         // Process the result
@@ -43,10 +45,10 @@
         else
         {
             // Generate SQL code to add the contact to the database
-            $sql = "INSERT INTO Contacts(first_name, last_name, email, phone, user_id) 
-                    VALUES ('" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $phone . "', " . $userID . ")";
+            $sql = "INSERT INTO Contacts(first_name, last_name, email, phone, user_id)
+                    VALUES ('" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $phone . "', '" . $userID . "')";
         }
-                
+
     }
 
     // 5 -Check if contact was added
@@ -57,7 +59,7 @@
         echo '{"Error Message":"' . $conn->error . '"}';
         $conn->close();
     }
-    // Contact was added successfully 
+    // Contact was added successfully
     else
     {
         header('Content-type: application/json');
