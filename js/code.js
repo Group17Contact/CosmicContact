@@ -40,7 +40,7 @@ function doLogIn()
 			}
 
 			// Parse the response from the server
-			
+
 
 			// Set the userId and check to make sure it was changed, if so, print the error and return
 			userId = jsonObject.userId;
@@ -66,10 +66,11 @@ function doLogIn()
 function doLogout()
 {
 	userId = 0;
-	document.getElementById("username").value = "";
-	document.getElementById("userPassword").value = "";
-	document.getElementById("firstName").value = "";
-	document.getElementById("lastName").value = "";
+	// TODO: Send a hit to logout endpoint
+	//document.getElementById("username").value = "";
+	//document.getElementById("userPassword").value = "";
+	//document.getElementById("firstName").value = "";
+	//document.getElementById("lastName").value = "";
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
 }
@@ -93,32 +94,32 @@ function doRegistration()
    // Prep for sending the json payload to the server
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	xhr.setRequestHeader("Content-type", "application/json");
 
 	try
 	{
       xhr.onreadystatechange = function()
 		{
-			if (this.readyState == 4 && this.status == 200)
-			{
+			if (this.readyState !== 4)
+				return;
+
             // Parse the response from the server
-            var jsonObject = JSON.parse(xhr.responseText);
+			var jsonObject = JSON.parse(xhr.responseText);
+			if (this.status !== 200)
+			{
+				document.getElementById("loginResult").innerHTML = jsonObject.error;
+            	return;
+			}
 
             // Set the userId and check to make sure it was changed, if so, print error and return
             userId = jsonObject.userId;
-            if (userId < 1)
-            {
-               document.getElementById("loginResult").innerHTML = jsonObject.error;
-               return;
-            }
 
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
+			//firstName = jsonObject.firstName;
+			//lastName = jsonObject.lastName;
 
-				saveCookie();
+			saveCookie();
 
-				window.location.href = "contacts.html";
-			}
+			window.location.href = "contacts.html";
 		};
 
 		// Send the json payload to the server
@@ -182,7 +183,7 @@ function addContact()
 
    // Prepare to send the contact info to the server
    var jsonPayload = '{"cFirstName" : "' + cFName + '", "cLastName" : "' + cLName + '", "cPhoneNum" : "' + cPhoneNum + '", "cEmail" : "' + cEmail + '", "userId" : "' + userId + '"}';
-   var url = urlBase + '/api/createContact.' + extension;
+   var url = urlBase + '/api/AddContact.' + extension;
 
    // Create and open a connection to the server
    var xhr = new XMLHttpRequest();
@@ -198,7 +199,7 @@ function addContact()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-            var table = document.getElementById('gibberish');
+            var table = document.getElementById('table');
             var tr = document.createElement("tr");
 
             tr.innerHTML = '<td>' + document.getElementById("cFirstName").value + '</td>' +

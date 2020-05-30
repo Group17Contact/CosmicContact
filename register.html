@@ -1,3 +1,5 @@
+<!-- register.html allows a user to create an account. The user is asked for first and last names, Username, and a password
+     The CSS file used is registerStyles.css. Some google fonts where imported via the link tag. -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,8 +7,10 @@
         <title>Registration</title>
         <link rel = "stylesheet" href = "css/registerStyles.css">
         <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Play:wght@400;700&display=swap" rel="stylesheet">
+        <link rel = "icon" href = "favicon.ico">
+        <script type="text/javascript" src="js/code.js"></script>
     </head>
-    <body>
+    <body>css
         <div class = "Rectangle"></div>
         <form>
             <h1>Registration Page</h1>
@@ -23,7 +27,11 @@
             <p class = "password">Password:</p>
             <input id = "userPassword" type = "password">
             <br>
-            <button id = "createAccount">Create Account</button>
+            <button id = "createAccount" onclick="doRegistration(); return false;">Create Account</button>
+            <button class = "returnButton">
+                <a href = "index.html">Return</a>
+            </button>
+            
         </form>
     </body>
 </html>
