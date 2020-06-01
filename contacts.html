@@ -1,76 +1,78 @@
 <!-- contacts.html is the page that displays all the users recorded contacts. It also allows the user to delete, search, and create contacts.
      The CSS file used is contactStyles and there is a link tag that imports some fonts from google fonts. -->
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset = "utf-8">
-        <title>CosmicContact.space</title>
-        <link rel = "stylesheet" href = "css/contactStyles.css">
-        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Play:wght@400;700&display=swap" rel="stylesheet">
-        <link rel = "icon" href = "favicon.ico">
-        <script type="text/javascript" src="js/code.js"></script>
-        <script type="text/javascript">
-            document.addEventListener('DOMContentLoaded', function() 
-            {
-                readCookie();
-            }, false);
-            </script>
-    </head>
-    <body>
-        <!-- This is the blueish background that should also appear when there are
-             one or more contacts. -->
-        <div onclick = "appear()" class = "Rectangle2"></div>
-        <div class = "navBar">
-        </div>
-        <h3>Hello <em id = Greating></em></h3>
-        <input class = "searchBar" type = "text" placeholder = "Search your contacts">
-        <button class = "searchButton">Search</button>
-        <a href = "createContact.html">
-            <button class = "createContact">Create Contact</button>
-
-        </a>
-        <button onclick = "doLogout()">Sign out</button>
-        <!-- This is the div that I was thinking we could make appear when there are 1 or more contacts -->
-        <div id = scrollBox class = "scrollBox">
-            One small line of text.
-            <table>
-                <tr>
-                    <td>HELLO</td>
-                    <td>HELLO</td>
-                    <td>HELLO</td>
-                    <td>HELLO</td>
-                </tr>
-                <tr>
-                    <td>HELLO</td>
-                    <td>HELLO</td>
-                    <td>HELLO</td>
-                    <td>HELLO</td>
-                </tr>
-                <tr>
-                    <td>HELLO</td>
-                    <td>HELLO</td>
-                    <td>HELLO</td>
-                    <td>HELLO</td>
-                </tr>
-                <tr>
-                    <td>HELLO</td>
-                    <td>HELLO</td>
-                    <td>HELLO</td>
-                    <td>HELLO</td>
-                </tr>
-            </table>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Augue ut lectus arcu bibendum at varius vel. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel. Justo laoreet sit amet cursus sit amet. Diam vulputate ut pharetra sit amet aliquam id diam maecenas. Non nisi est sit amet. Netus et malesuada fames ac turpis egestas maecenas. Sapien eget mi proin sed libero. Lacus sed viverra tellus in. Pretium quam vulputate dignissim suspendisse in est ante in. Tempor nec feugiat nisl pretium fusce id velit. Id volutpat lacus laoreet non curabitur gravida arcu ac tortor. Nibh tortor id aliquet lectus proin nibh nisl. Facilisis mauris sit amet massa vitae tortor condimentum lacinia quis. Lectus urna duis convallis convallis tellus id interdum velit. Lorem ipsum dolor sit amet consectetur. Mattis nunc sed blandit libero volutpat sed. Lectus arcu bibendum at varius vel.
-
-Ultrices eros in cursus turpis massa tincidunt dui ut ornare. Ut sem nulla pharetra diam sit amet nisl suscipit. Molestie at elementum eu facilisis sed odio morbi quis. Massa vitae tortor condimentum lacinia quis. Eget arcu dictum varius duis. Lobortis mattis aliquam faucibus purus in massa tempor. Pellentesque elit ullamcorper dignissim cras. Orci a scelerisque purus semper eget duis. Elementum pulvinar etiam non quam lacus suspendisse. Sed vulputate mi sit amet. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. Facilisis volutpat est velit egestas dui id ornare arcu odio. Euismod lacinia at quis risus sed vulputate odio. Risus nullam eget felis eget. Pellentesque habitant morbi tristique senectus et.
-
-Sed libero enim sed faucibus turpis in. Aliquet eget sit amet tellus cras adipiscing enim eu. Mattis nunc sed blandit libero volutpat sed cras ornare. Vel facilisis volutpat est velit egestas dui id ornare arcu. Condimentum lacinia quis vel eros donec ac odio tempor. Quis vel eros donec ac odio tempor orci dapibus. Etiam non quam lacus suspendisse faucibus interdum posuere lorem. Mi tempus imperdiet nulla malesuada. Elit pellentesque habitant morbi tristique senectus. Dignissim enim sit amet venenatis urna.
-
-Lacinia quis vel eros donec. Nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus. Sit amet justo donec enim. Justo nec ultrices dui sapien eget mi proin sed libero. Leo in vitae turpis massa sed elementum tempus. Ante metus dictum at tempor commodo. Rhoncus urna neque viverra justo nec. Nunc scelerisque viverra mauris in. Mauris a diam maecenas sed enim. Dolor purus non enim praesent elementum facilisis leo vel. Tellus integer feugiat scelerisque varius morbi enim. Odio eu feugiat pretium nibh ipsum consequat nisl vel pretium. A erat nam at lectus urna duis convallis convallis tellus. Sit amet est placerat in egestas erat imperdiet sed euismod. Nunc congue nisi vitae suscipit tellus mauris a. Vitae aliquet nec ullamcorper sit amet risus nullam. Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Pharetra magna ac placerat vestibulum lectus. Sed viverra tellus in hac.
-
-Elementum facilisis leo vel fringilla est ullamcorper eget nulla. Ut tristique et egestas quis ipsum. Tellus elementum sagittis vitae et leo duis. Aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Sit amet commodo nulla facilisi nullam. Velit euismod in pellentesque massa placerat duis ultricies lacus. Facilisis leo vel fringilla est ullamcorper eget nulla facilisi etiam. Placerat in egestas erat imperdiet sed euismod. Euismod in pellentesque massa placerat duis ultricies. Ac turpis egestas sed tempus urna et pharetra pharetra. Ultrices neque ornare aenean euismod. Odio euismod lacinia at quis risus sed vulputate odio. Aliquam etiam erat velit scelerisque in dictum non consectetur. Ac odio tempor orci dapibus ultrices.
-            </p>
-        </div> 
-    </body>
-</html>
+     <!DOCTYPE html>
+     <html>
+         <head>
+             <meta charset = "utf-8">
+             <title>CosmicContact.space</title>
+             <link rel = "stylesheet" href = "css/contactStyles.css">
+             <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Play:wght@400;700&display=swap" rel="stylesheet">
+             <link rel = "icon" href = "favicon.ico">
+             <script type="text/javascript" src="js/code.js"></script>
+             <!-- <script type="text/javascript">
+             \ -->
+             <script>
+                document.addEventListener('DOMContentLoaded', function() 
+                {
+                    readCookie();
+                }, false);
+             </script>
+         </head>
+         <body>
+             <!-- This is the blueish background that should also appear when there are
+                  one or more contacts. -->
+             <div onclick = "appear()" class = "Rectangle2"></div>
+             <div class = "navBar">
+             </div>
+             <h3>Hello<em id = Greating> "User Name Here"</em></h3>
+             <input class = "searchBar" type = "text" placeholder = "Search your contacts">
+             <button class = "searchButton">Search</button>
+             <a href = "createContact.html">
+                 <button class = "createContact">Create Contact</button>
+     
+             </a>
+             <button onclick = "doLogout()">Sign out</button>
+             <!-- This is the div that I was thinking we could make appear when there are 1 or more contacts -->
+             <div id = scrollBox class = "scrollBox">
+                 One small line of text.
+                 <table>
+                     <tr>
+                         <td>HELLO</td>
+                         <td>HELLO</td>
+                         <td>HELLO</td>
+                         <td>HELLO</td>
+                     </tr>
+                     <tr>
+                         <td>HELLO</td>
+                         <td>HELLO</td>
+                         <td>HELLO</td>
+                         <td>HELLO</td>
+                     </tr>
+                     <tr>
+                         <td>HELLO</td>
+                         <td>HELLO</td>
+                         <td>HELLO</td>
+                         <td>HELLO</td>
+                     </tr>
+                     <tr>
+                         <td>HELLO</td>
+                         <td>HELLO</td>
+                         <td>HELLO</td>
+                         <td>HELLO</td>
+                     </tr>
+                 </table>
+                 <p>
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Augue ut lectus arcu bibendum at varius vel. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel. Justo laoreet sit amet cursus sit amet. Diam vulputate ut pharetra sit amet aliquam id diam maecenas. Non nisi est sit amet. Netus et malesuada fames ac turpis egestas maecenas. Sapien eget mi proin sed libero. Lacus sed viverra tellus in. Pretium quam vulputate dignissim suspendisse in est ante in. Tempor nec feugiat nisl pretium fusce id velit. Id volutpat lacus laoreet non curabitur gravida arcu ac tortor. Nibh tortor id aliquet lectus proin nibh nisl. Facilisis mauris sit amet massa vitae tortor condimentum lacinia quis. Lectus urna duis convallis convallis tellus id interdum velit. Lorem ipsum dolor sit amet consectetur. Mattis nunc sed blandit libero volutpat sed. Lectus arcu bibendum at varius vel.
+     
+     Ultrices eros in cursus turpis massa tincidunt dui ut ornare. Ut sem nulla pharetra diam sit amet nisl suscipit. Molestie at elementum eu facilisis sed odio morbi quis. Massa vitae tortor condimentum lacinia quis. Eget arcu dictum varius duis. Lobortis mattis aliquam faucibus purus in massa tempor. Pellentesque elit ullamcorper dignissim cras. Orci a scelerisque purus semper eget duis. Elementum pulvinar etiam non quam lacus suspendisse. Sed vulputate mi sit amet. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. Facilisis volutpat est velit egestas dui id ornare arcu odio. Euismod lacinia at quis risus sed vulputate odio. Risus nullam eget felis eget. Pellentesque habitant morbi tristique senectus et.
+     
+     Sed libero enim sed faucibus turpis in. Aliquet eget sit amet tellus cras adipiscing enim eu. Mattis nunc sed blandit libero volutpat sed cras ornare. Vel facilisis volutpat est velit egestas dui id ornare arcu. Condimentum lacinia quis vel eros donec ac odio tempor. Quis vel eros donec ac odio tempor orci dapibus. Etiam non quam lacus suspendisse faucibus interdum posuere lorem. Mi tempus imperdiet nulla malesuada. Elit pellentesque habitant morbi tristique senectus. Dignissim enim sit amet venenatis urna.
+     
+     Lacinia quis vel eros donec. Nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus. Sit amet justo donec enim. Justo nec ultrices dui sapien eget mi proin sed libero. Leo in vitae turpis massa sed elementum tempus. Ante metus dictum at tempor commodo. Rhoncus urna neque viverra justo nec. Nunc scelerisque viverra mauris in. Mauris a diam maecenas sed enim. Dolor purus non enim praesent elementum facilisis leo vel. Tellus integer feugiat scelerisque varius morbi enim. Odio eu feugiat pretium nibh ipsum consequat nisl vel pretium. A erat nam at lectus urna duis convallis convallis tellus. Sit amet est placerat in egestas erat imperdiet sed euismod. Nunc congue nisi vitae suscipit tellus mauris a. Vitae aliquet nec ullamcorper sit amet risus nullam. Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Pharetra magna ac placerat vestibulum lectus. Sed viverra tellus in hac.
+     
+     Elementum facilisis leo vel fringilla est ullamcorper eget nulla. Ut tristique et egestas quis ipsum. Tellus elementum sagittis vitae et leo duis. Aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Sit amet commodo nulla facilisi nullam. Velit euismod in pellentesque massa placerat duis ultricies lacus. Facilisis leo vel fringilla est ullamcorper eget nulla facilisi etiam. Placerat in egestas erat imperdiet sed euismod. Euismod in pellentesque massa placerat duis ultricies. Ac turpis egestas sed tempus urna et pharetra pharetra. Ultrices neque ornare aenean euismod. Odio euismod lacinia at quis risus sed vulputate odio. Aliquam etiam erat velit scelerisque in dictum non consectetur. Ac odio tempor orci dapibus ultrices.
+                 </p>
+             </div> 
+         </body>
+     </html>

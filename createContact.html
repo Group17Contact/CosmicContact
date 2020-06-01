@@ -1,23 +1,41 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset = "utf-8">
-        <title>CosmicContact.space</title>
-        <!-- <link rel = "stylesheet" href = "CSS/styles.css"> -->
-        <link rel = "stylesheet" href = "CSS/contactStyles.css">
-        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Play:wght@400;700&display=swap" rel="stylesheet">
-        <!--<link rel = "icon" href = "">-->
-    </head>
-    <body class = "bodyBackground">
-        <div class = "navBar">
-        </div>
-        <h3>Hello<em>"User Name Here"</em></h3>
-        <input class = "searchBar" type = "text" placeholder = "Search your contacts">
-        <button class = "searchButton">Search</button>
-        <a href = "createContact.html">
-            <button class = "createContact">Create Contact</button>
-        </a>
-        <button>Sign out</button>
-        <!-- <iframe src="https://giphy.com/embed/5PhxAUrOowjBrIAWqc" width="20" height="30" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/stickers/retro-pixel-5PhxAUrOowjBrIAWqc">via GIPHY</a></p> -->
-    </body>
-</html>
+
+<!-- createContact.html lets a user add a contact to their list of contacts. The site prompts the user for the new contacts:
+     First name, last name, email, and phone number. The CSS file used to style the page is contactStyles.css. Some google fonts
+     where imported via the link tag. -->
+     <!DOCTYPE html>
+     <html>
+         <head>
+             <meta charset = "utf-8">
+             <title>CosmicContact.space</title>
+             <link rel = "stylesheet" href = "CSS/contactStyles.css">
+             <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Play:wght@400;700&display=swap" rel="stylesheet">
+             <link rel = "icon" href = "favicon.ico">
+             <link rel="icon" href="http://example.com/favicon.gif" type="image/gif" />
+         </head>
+         <body class = "bodyBackground">
+             <div class = "navBar"></div>
+             <h3>Hello<em>"User Name Here"</em></h3>
+             <div class = "Rectangle"></div>
+             <form>
+                 <h1>Add your contact</h1>
+                 <br>
+                 <p>First name:</p>
+                 <input class = "bar" id = "firstName" type = "text">
+                 <br>
+                 <p>Last name:</p>
+                 <input class = "bar" id = "lastName" type = "text">
+                 <br>
+                 <p class = "email">Email:</p>
+                 <input class = "bar" id = "email" type = "email">
+                 <br>
+                 <p class = "phone">Phone number:</p>
+                 <input class = "bar" id = "phoneNumber" type = "tel" style = "margin-right: 46px;">
+                 <br>
+                 <button class = "addContact" id = "addContact">Add contact</button>
+             </form>
+             <a href = "contacts.html">
+                 <button class = "return">Return to contacts</button>
+             </a>
+             <button>Sign out</button>
+         </body>
+     </html>
