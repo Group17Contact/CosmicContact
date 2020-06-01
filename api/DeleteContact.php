@@ -24,23 +24,22 @@
     {
         // Generate SQL code to delete the contact from the database
         $sql = "DELETE FROM Contacts 
-                WHERE first_name = '" . $firstname . "' AND last_name = '" . $lastname . "' AND email = '" . $email . "' AND phone = '" . $phone . "' AND user_Id = " . $userID . "";
-                        
+                WHERE first_name = '" . $firstname . "' AND last_name = '" . $lastname . "' AND email = '" . $email . "' AND phone = '" . $phone . "' AND user_Id = " . $userID . "";             
     }
 
     // 5 -Check if contact was deleted
-    // Contact was not deleted, send an error
-    if ($conn->query($sql) != TRUE)
-    {
-        header('Content-type: application/json');
-        echo '{"Error Message":"' . $conn->error . '"}';
-        $conn->close();
-    }
     // Contact was deleted successfully 
-    else
+    if ($conn->query($sql) == TRUE && $conn->affected_rows > 0)
     {
         header('Content-type: application/json');
         echo '{"Message":  "'. $firstname .'  '.$lastname . ' was successfully deleted!!"}';
+        $conn->close();
+    }
+    // Contact was not deleted, send an error
+    else
+    {
+        header('Content-type: application/json');
+        echo '{"Message":  "'. $firstname .'  '.$lastname . ' does not exist in your contact list"}';
         $conn->close();
     }
 
