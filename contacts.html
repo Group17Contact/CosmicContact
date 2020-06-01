@@ -10,6 +10,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Play:wght@400;700&display=swap" rel="stylesheet">
         <link rel = "icon" href = "favicon.ico">
         <script type="text/javascript" src="js/code.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() 
+            {
+                readCookie();
+            }, false);
+            </script>
     </head>
     <body>
         <!-- This is the blueish background that should also appear when there are
@@ -17,7 +23,7 @@
         <div onclick = "appear()" class = "Rectangle2"></div>
         <div class = "navBar">
         </div>
-        <h3>Hello<em id = Greating> "User Name Here"</em></h3>
+        <h3>Hello <em id = Greating></em></h3>
         <input class = "searchBar" type = "text" placeholder = "Search your contacts">
         <button class = "searchButton">Search</button>
         <a href = "createContact.html">

@@ -52,7 +52,7 @@
 	}
 
 	// Set up a query. We will substitute a username in place of the "?"
-	$stmt = $conn->prepare("select user_id, password from Users where login=?");
+	$stmt = $conn->prepare("select first_name, last_name, user_id, password from Users where login=?");
 	// Check for errors
 	if (!$stmt) {
 		echoErrorJson("Server error");
@@ -86,7 +86,7 @@
 	$conn->close();
 
 	// Read in the password hash from the database
-	$passwordHash = $row["password"] ?? NULL;
+	$passwordHash = $row["password"];
 
 	// Check if the user has entered the correct password
 	$match = password_verify($rawPass, $passwordHash);
@@ -97,11 +97,11 @@
 		return;
 	}
 	// Associate the user ID with the session
-	$userId = $row["user_id"] ?? NULL;
+	$userId = $row["user_id"];
 	$_SESSION[USER_SESSION_KEY] = $userId;
 
 	// Return some basic info as JSON
-	echo json_encode(["success" => true, "userId" => $userId]);
+	echo json_encode(["success" => true, "userId" => $userId, "firstName" => $row["first_name"], "lastName" => $row["last_name"]]);
 
 
 	// This function was provided by Rick Leinecker
