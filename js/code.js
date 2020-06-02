@@ -71,7 +71,7 @@ function doLogout()
 	//document.getElementById("userPassword").value = "";
 	//document.getElementById("firstName").value = "";
 	//document.getElementById("lastName").value = "";
-	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+	document.cookie = "userData= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
 }
 
@@ -113,7 +113,8 @@ function doRegistration()
 
             // Set the userId and check to make sure it was changed, if so, print error and return
             userId = jsonObject.userId;
-
+			window.firstName = firstName;
+			window.lastName = lastName;
 			//firstName = jsonObject.firstName;
 			//lastName = jsonObject.lastName;
 
