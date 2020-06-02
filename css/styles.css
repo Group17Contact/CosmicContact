@@ -103,3 +103,8 @@ form {
     opacity: 1;
     
 }
+
+#loginResult {
+    font-size: xx-large;
+    color: red;
+}
