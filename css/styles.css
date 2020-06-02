@@ -73,6 +73,7 @@ input {
     border-style: solid;
     border-width: 3px;
     border-color: black;
+    cursor: pointer;
 
 }
 .Sign-in:hover {
@@ -90,6 +91,7 @@ input {
     border-style: solid;
     border-width: 3px;
     border-color: black;
+    cursor: pointer;
 }
 
 .Register:hover {
