@@ -32,15 +32,15 @@ function doLogIn()
 		{
 			if (this.readyState !== 4)
 				return;
-				var jsonObject = JSON.parse(xhr.responseText);
+
+			// Parse the response from the server
+			var jsonObject = JSON.parse(xhr.responseText);
+
 			if (this.status !== 200)
 			{
 				document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 				return;
 			}
-
-			// Parse the response from the server
-
 
 			// Set the userId and check to make sure it was changed, if so, print the error and return
 			userId = jsonObject.userId;
@@ -103,16 +103,17 @@ function doRegistration()
 			if (this.readyState !== 4)
 				return;
 
-            // Parse the response from the server
+         // Parse the response from the server
 			var jsonObject = JSON.parse(xhr.responseText);
+
 			if (this.status !== 200)
 			{
 				document.getElementById("loginResult").innerHTML = jsonObject.error;
             	return;
 			}
 
-            // Set the userId and check to make sure it was changed, if so, print error and return
-            userId = jsonObject.userId;
+         // Set the userId and check to make sure it was changed, if so, print error and return
+         userId = jsonObject.userId;
 			window.firstName = firstName;
 			window.lastName = lastName;
 			//firstName = jsonObject.firstName;
@@ -146,11 +147,11 @@ function readCookie()
 	userId = -1;
 	var data = document.cookie;
 	var splits = data.split(";");
-	for(var i = 0; i < splits.length; i++) 
+	for (var i = 0; i < splits.length; i++)
 	{
 		var thisOne = splits[i].trim();
 		var tokens = thisOne.split("=");
-		if( tokens[0] !== "userData" )
+		if (tokens[0] !== "userData")
 			continue;
 		var userData = JSON.parse(decodeURIComponent(tokens[1]));
 		userId = userData.userId;
@@ -159,7 +160,7 @@ function readCookie()
 		break;
 	}
 
-	if( userId < 0 )
+	if (userId < 0)
 	{
 		window.location.href = "index.html";
 	}
@@ -172,14 +173,14 @@ function readCookie()
 function addContact()
 {
    // Get the contact info from the HTML
-   var cFName = document.getElementById("cFirstName").value;
-   var cLName = document.getElementById("cLastName").value;
-   var cPhoneNum = document.getElementById("cPhoneNumber").value;
-   var cEmail = document.getElementById("cEmail").value;
+   var fName = document.getElementById("firstName").value;
+   var lName = document.getElementById("lastName").value;
+   var email = document.getElementById("email").value;
+   var phone = document.getElementById("phoneNumber").value;
    document.getElementById("contactAddResult").innerHTML = "";
 
    // Prepare to send the contact info to the server
-   var jsonPayload = '{"cFirstName" : "' + cFName + '", "cLastName" : "' + cLName + '", "cPhoneNum" : "' + cPhoneNum + '", "cEmail" : "' + cEmail + '", "userId" : "' + userId + '"}';
+   var jsonPayload = '{"firstname" : "' + fName + '", "lastname" : "' + lName + '", "email" : "' + email + '", "phone" : "' + phone + '"}';
    var url = urlBase + '/api/AddContact.' + extension;
 
    // Create and open a connection to the server
@@ -199,17 +200,17 @@ function addContact()
             var table = document.getElementById('table');
             var tr = document.createElement("tr");
 
-            tr.innerHTML = '<td>' + document.getElementById("cFirstName").value + '</td>' +
-            '<td>' + document.getElementById("cLastName").value + '</td>' +
-            '<td>' + document.getElementById("cEmail").value + '</td>' +
-            '<td>' + document.getElementById("cPhoneNumber").value + '</td>';
+            tr.innerHTML = '<td>' + document.getElementById("firstname").value + '</td>' +
+            '<td>' + document.getElementById("lastname").value + '</td>' +
+            '<td>' + document.getElementById("email").value + '</td>' +
+            '<td>' + document.getElementById("phone").value + '</td>';
             table.appendChild(tr);
 
             // Clear the add contact fields
-            document.getElementById("cEmail").value = "";
-            document.getElementById("cFirstName").value = "";
-            document.getElementById("cLastName").value = "";
-            document.getElementById("cPhoneNumber").value = "";
+            document.getElementById("firstname").value = "";
+            document.getElementById("lastname").value = "";
+				document.getElementById("email").value = "";
+            document.getElementById("phone").value = "";
             document.getElementById("contactAddResult").innerHTML = "Contact has been added";
             // deleteTable();
             // retrieveContacts();
