@@ -49,6 +49,7 @@ button {
     border-style: solid;
     border-width: 3px;
     border-color: black;
+    cursor: pointer;
 }
 
 button:hover {
@@ -99,9 +100,4 @@ h1 {
 a{
     color: black;
     text-decoration: none;
-}
-
-#loginResult {
-    font-size: xx-large;
-    color: red;
 }
