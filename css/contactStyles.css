@@ -7,6 +7,11 @@ body {
     margin: 0;
 }
 
+li {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 h3 {
     color: whitesmoke;
     font-family: 'Bangers', cursive;
@@ -18,6 +23,9 @@ h3 {
 
 /* Make text appear bigger when mouse hovers over greating message */
 h3:hover {
+    font-size: 20px;
+}
+.hover:hover {
     font-size: 20px;
 }
 
@@ -35,6 +43,7 @@ button {
     border-color: black;
     position: fixed;
     right: 1%;
+    cursor: pointer;
 }
 
 /* On mouse hover Sign out button flashes this brighter red */
@@ -258,3 +267,59 @@ p {
       font-family: 'Play', sans-serif;
       color: whitesmoke;
   }
+
+  .collaps {
+    /* background-color: #777; */
+    background-color: black;
+    position: static;
+    border-radius: 0;
+    color: white;
+    cursor: pointer;
+    /* padding: 18px;*/
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    margin-top: 0;
+  }
+  
+  .active, .collaps:hover {
+    /* background-color: #555; */
+    margin-top: 0px;
+    width: 100%;
+    border-radius: 0;
+    background-color: black;
+  }
+  
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    /* background-color: #f1f1f1; */
+    background-color: #00005c;
+    opacity: .6;
+    
+  }
+
+td {
+    color: white;
+    /* padding-left: 100px; */
+}
+
+.Edit {
+    position: static;
+    width: 100%;
+    height: 30px;
+    font-size: medium;
+    background-color: #f3c623;
+}
+.Edit:hover {
+    background-color: #f9fd1a; 
+}
+
+.deleteContact {
+    column-span: all;
+    position: static;
+    width: 100%;
+}
