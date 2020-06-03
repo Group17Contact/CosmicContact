@@ -1,4 +1,7 @@
 deployment:
   tasks:
     - export DEPLOYPATH=$HOME/public_html/
+    - export BACKUPPATH=$HOME/backup/
+    - /bin/mv $DEPLOYPATH $BACKUPPATH/$(date '+%F-%H-%M-%S')
+    - /bin/mkdir $DEPLOYPATH
     - /bin/cp -R ./ $DEPLOYPATH
