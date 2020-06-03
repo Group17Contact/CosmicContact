@@ -159,6 +159,7 @@ button:hover {
     right: 0px;
 }
 
+/* This is the dark blue rectangle in which the contact list appears on */
 .Rectangle2 {
     top: 55px;
     text-align: center;
@@ -176,11 +177,13 @@ button:hover {
     padding-bottom: 0px;
 }
 
+/* Email field positioning in createContact.html */
 .email {
     margin-right: 10px;
     margin-left: 54px;
 }
 
+/* Phone field positioning in createContact.html */
 .phone {
     margin-left: 5px;
 }
@@ -196,6 +199,7 @@ h1 {
     background-color: #1eff16;
 }
 
+/* Add contact button styling(createContact.html) */
 .addContact {
     border-radius: 10px;
     width: 20%;
@@ -268,14 +272,14 @@ p {
       color: whitesmoke;
   }
 
+  /* Handles styling for button that expands to contact info */
   .collaps {
-    /* background-color: #777; */
-    background-color: black;
+    background-color: #07031a;
     position: static;
-    border-radius: 0;
-    color: white;
+    color: whitesmoke;
+    font-family: 'Play', sans-serif;
+    font-weight: bolder;
     cursor: pointer;
-    /* padding: 18px;*/
     width: 100%;
     border: none;
     text-align: left;
@@ -284,29 +288,28 @@ p {
     margin-top: 0;
   }
   
+  /* Styling for collaps when hovering and when it has been clicked */
   .active, .collaps:hover {
-    /* background-color: #555; */
     margin-top: 0px;
     width: 100%;
-    border-radius: 0;
+    height: 50px;
     background-color: black;
+    font-size: large;
   }
   
+  /* Styling for the container that holds a contacts info.
+     This styling is seen once the contact is clicked. */
   .content {
     padding: 0 18px;
     display: none;
     overflow: hidden;
-    /* background-color: #f1f1f1; */
-    background-color: #00005c;
-    opacity: .6;
-    
   }
 
 td {
     color: white;
-    /* padding-left: 100px; */
 }
 
+/* Styling for all the edit buttons */
 .Edit {
     position: static;
    /* width: 100%;
@@ -318,6 +321,7 @@ td {
     background-color: #f9fd1a; 
 }
 
+/* Styling for Delete contact button */
 .deleteContact {
     column-span: all;
     position: static;
