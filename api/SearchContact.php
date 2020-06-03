@@ -23,10 +23,10 @@
   	else
   	{
 		// 5 - Generate SQL code to search the contact in the database
-		$sql = "SELECT first_name, last_name, email, phone 
+		$sql = "SELECT id, first_name, last_name, email, phone 
 				FROM Contacts
 				WHERE user_id = " . $userID . "
-				AND first_name LIKE '%" . $keyword . "%' OR last_name LIKE '%" . $keyword . "%' OR email LIKE '%" . $keyword . "%'
+				AND (first_name LIKE '%" . $keyword . "%' OR last_name LIKE '%" . $keyword . "%' OR email LIKE '%" . $keyword . "%')
 				ORDER BY first_name ASC";
 		// Get the result of the search
 		$result = $conn->query($sql);
@@ -41,14 +41,15 @@
 					'firstName' => $row['first_name'],
 					'lastName' => $row['last_name'],
 					'email' => $row['email'],
-					'phone' => $row['phone'] 
+					'phone' => $row['phone'],
+					'contactId' => $row['id']
 					]);
 			}
 			// Convert the array to JSON string
 			$contactsJSON = json_encode($contacts);
 
 			header('Content-type: application/json');
-			echo '{"Message":' . $contactsJSON . '}';
+			echo '{"results":' . $contactsJSON . '}';
 			$conn->close();
 			
 		}

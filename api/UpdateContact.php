@@ -4,14 +4,11 @@
 
         // 2 - Extract the contact info
         $userID = $inData["userId"];
+        $contactId = $inData["contactId"];
         $firstname = $inData["firstname"];
         $lastname = $inData["lastname"];
         $email = $inData["email"];
         $phone = $inData["phone"];
-        $firstnamenew = $inData["firstnamenew"];
-        $lastnamenew = $inData["lastnamenew"];
-        $emailnew = $inData["emailnew"];
-        $phonenew = $inData["phonenew"];
 
         // 3 - Create a connection to the database (localhost, username, password, database name)
         $conn = new mysqli("localhost", "nas", "sx1qJa3kO8A#", "cosmiccontact");
@@ -30,14 +27,14 @@
           $sql = "SELECT *
                   FROM Contacts
                   WHERE user_id = " . $userID . "
-                  AND first_name = '" . $firstname . "' AND last_name = '" . $lastname . "' AND email = '" . $email . "' AND phone = '" . $phone . "' ";
+                  AND id = " . $contactId;
 
           $result = $conn->query($sql);
 
           if ($result->num_rows == 0)
           {
             header('Content-type: application/json');
-            echo '{"Message":  "'. $firstname .'  '.$lastname . ' does not exist in your list"}';
+            echo '{"Message":  "That contact does not exist in your list"}';
             $conn->close();
             return;
           }
@@ -45,8 +42,8 @@
           else
           {
             $sql = "UPDATE Contacts
-            SET first_name = '" . $firstnamenew . "' , last_name = '" . $lastnamenew . "' , email = '" . $emailnew . "' , phone = '" . $phonenew . "'
-            WHERE first_name = '" . $firstname . "' AND last_name = '" . $lastname . "' AND email = '" . $email . "' AND phone = '" . $phone . "' AND user_Id = " . $userID . "";
+            SET first_name = '" . $firstname . "' , last_name = '" . $lastname . "' , email = '" . $email . "' , phone = '" . $phone . "'
+            WHERE id = " . $contactId . " AND user_id = " . $userID . "";
           }
         }
 
@@ -62,7 +59,8 @@
     else
     {
         header('Content-type: application/json');
-        echo '{"Message":  "'. $firstname .'  '.$lastname . ' was successfully updated to '. $firstnamenew .' '.$lastnamenew.'!!"}';
+        //echo '{"Message":  "'. $firstname .'  '.$lastname . ' was successfully updated to '. $firstnamenew .' '.$lastnamenew.'!!"}';
+        echo json_encode(["Message" => "Contact updated"]);
         $conn->close();
     }
 
