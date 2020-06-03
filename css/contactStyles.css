@@ -268,12 +268,19 @@ p {
       color: whitesmoke;
   }
 
+  /* table {
+    table-layout: fi;
+    width: 100%;
+  } */
+
   .collaps {
     /* background-color: #777; */
-    background-color: black;
+    background-color: #07031a;
     position: static;
-    border-radius: 0;
-    color: white;
+    /* border-radius: 0; */
+    color: whitesmoke;
+    font-family: 'Play', sans-serif;
+    font-weight: bolder;
     cursor: pointer;
     /* padding: 18px;*/
     width: 100%;
@@ -288,8 +295,10 @@ p {
     /* background-color: #555; */
     margin-top: 0px;
     width: 100%;
-    border-radius: 0;
+    height: 50px;
+    /* border-radius: 0; */
     background-color: black;
+    font-size: large;
   }
   
   .content {
@@ -297,9 +306,8 @@ p {
     display: none;
     overflow: hidden;
     /* background-color: #f1f1f1; */
-    background-color: #00005c;
-    opacity: .6;
-    
+    /* background-color: #00005c;
+    opacity: .6; */
   }
 
 td {
@@ -309,7 +317,7 @@ td {
 
 .Edit {
     position: static;
-    width: 100%;
+    width: 150px;
     height: 30px;
     font-size: medium;
     background-color: #f3c623;
