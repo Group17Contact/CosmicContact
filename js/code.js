@@ -222,7 +222,153 @@ function addContact()
 		document.getElementById("addContactResult").innerHTML = err.message;
 	}
 }
+function makeRow(label, value, className) {
+	var tr = document.createElement("tr");
+	var labelTd = document.createElement("td");
+	labelTd.innerText = label;
+	var valueTd = document.createElement("td");
+	var valueInput = document.createElement("input");
+	valueInput.type = "text";
+	valueInput.value = value;
+	valueInput.readOnly = true;
+	valueInput.classList.add(className);
+	valueTd.appendChild(valueInput);
+	
+	tr.appendChild(labelTd);
+	tr.appendChild(valueTd);
+	return tr;
+}
+function makeCollapse(button, content) {
+	button.addEventListener("click", function() 
+	{
+	  button.classList.toggle("active");
+	  if (content.style.display === "block") 
+	  {
+		content.style.display = "none";
+	  } else 
+	  {
+		content.style.display = "block";
+	  }
+	});
+}
 
+function setupDelete(entry, deleteBtn, contactId) {
+	deleteBtn.addEventListener("click", function () {
+		var data = {userId: userId, contactId: contactId};
+		var url = urlBase + 'api/DeleteContact.' + extension;
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", url);
+		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+		xhr.onload = function () {
+			var res = JSON.parse(xhr.responseText);
+			// TODO: different responses...
+			entry.remove();
+		}
+		xhr.send(JSON.stringify(data));
+	});
+}
+function onClickSearch() {
+	var el = document.getElementById("searchInput");
+	performSearch(el.value);
+}
+
+function setupEdit(entry, editBtn, contactId) {
+	var editMode = false;
+	editBtn.addEventListener("click", function (){
+		var firstNameIn = entry.getElementsByClassName("firstName")[0];
+		var lastNameIn = entry.getElementsByClassName("lastName")[0];
+		var emailIn = entry.getElementsByClassName("email")[0];
+		var phoneIn = entry.getElementsByClassName("phone")[0];
+		editMode = !editMode;
+		firstNameIn.readOnly = !editMode;
+		lastNameIn.readOnly = !editMode;
+		emailIn.readOnly = !editMode;
+		phoneIn.readOnly = !editMode;
+		if (editMode) {
+			editBtn.innerText = "Save";
+		} else {
+			editBtn.disabled = true;
+			editBtn.innerText = "Saving...";
+			var data = {userId: userId, contactId: contactId, firstname: firstNameIn.value, lastname: lastNameIn.value,
+			email: emailIn.value,
+			phone: phoneIn.value};
+			var url = urlBase + 'api/UpdateContact.' + extension;
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", url);
+			xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+			xhr.onload = function () {
+				var res = JSON.parse(xhr.responseText);
+				editBtn.disabled = false;
+				editBtn.innerText = "Edit";
+
+			};
+			xhr.send(JSON.stringify(data));
+		}
+	});
+}
+function performSearch(search) {
+	var data = {userId: userId, keyword: search};
+	var url = urlBase + 'api/SearchContact.' + extension;
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	var searchResultsDiv = document.getElementById("searchResultsDiv");
+	xhr.onload = function () {
+		var res = JSON.parse(xhr.responseText);
+		searchResultsDiv.innerHTML = "";
+		if (res.error || res.Message) {
+			var message = document.createElement("div");
+			message.classList.add("searchMessage");
+			message.innerText = res.error || res.Message;
+			searchResultsDiv.appendChild(message);
+			return;
+		}
+
+		var results = res.results;
+		for (var result of results) {
+			var entry = document.createElement("div");
+			var a = document.createElement("button");
+			a.classList.add("collaps");
+			a.innerText = result.firstName + " " + result.lastName;
+			entry.appendChild(a);
+			var content = document.createElement("div");
+			var table = document.createElement("table");
+			content.classList.add("content");
+
+			var firstNameTr = makeRow("First name:", result.firstName, "firstName");
+			table.appendChild(firstNameTr);
+			
+			var lastNameTr = makeRow("Last name:", result.lastName, "lastName");
+			table.appendChild(lastNameTr);
+
+			var emailTr = makeRow("Email:", result.email, "email");
+			table.appendChild(emailTr);
+
+			var phoneTr = makeRow("Phone #:", result.phone, "phone");
+			table.appendChild(phoneTr);
+			content.appendChild(table);
+			var buttons = document.createElement("div");
+			var deleteButton = document.createElement("button");
+			deleteButton.classList.add("deleteContact");
+			deleteButton.innerText = "Delete Contact";
+			setupDelete(entry, deleteButton, parseInt(result.contactId));
+			buttons.appendChild(deleteButton);
+
+			var editButton = document.createElement("button");
+			editButton.classList.add("Edit");
+			editButton.innerText = "Edit";
+			buttons.appendChild(editButton);
+			setupEdit(entry, editButton, parseInt(result.contactId));
+			content.appendChild(buttons);
+			entry.appendChild(content);
+			makeCollapse(a, content);
+           
+			
+			searchResultsDiv.appendChild(entry);
+		}
+	}
+	xhr.send(JSON.stringify(data));
+}
 function retrieveContacts()
 {
 //   document.getElementById("contactRetrieveResult").innerHTML = "";

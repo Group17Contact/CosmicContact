@@ -4,10 +4,7 @@
 
     // 2 - Extract the contact info
     $userID = $inData["userId"];
-    $firstname = $inData["firstname"];
-    $lastname = $inData["lastname"];
-    $email = $inData["email"];
-    $phone = $inData["phone"];
+    $contactId = $inData["contactId"];
 
     // 3 - Create a connection to the database (localhost, username, password, database name)
     $conn = new mysqli("localhost", "nas", "sx1qJa3kO8A#", "cosmiccontact");
@@ -24,7 +21,7 @@
     {
         // Generate SQL code to delete the contact from the database
         $sql = "DELETE FROM Contacts 
-                WHERE first_name = '" . $firstname . "' AND last_name = '" . $lastname . "' AND email = '" . $email . "' AND phone = '" . $phone . "' AND user_Id = " . $userID . "";             
+                WHERE id = " . $contactId . "  AND user_id = " . $userID . "";             
     }
 
     // 5 -Check if contact was deleted

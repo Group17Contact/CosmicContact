@@ -309,8 +309,8 @@ td {
 
 .Edit {
     position: static;
-    width: 100%;
-    height: 30px;
+   /* width: 100%;
+    height: 30px;*/
     font-size: medium;
     background-color: #f3c623;
 }
@@ -321,5 +321,12 @@ td {
 .deleteContact {
     column-span: all;
     position: static;
-    width: 100%;
+    width: initial;
+    /*width: 100%;*/
+}
+
+.searchMessage {
+    color: red;
+    font-size: xx-large;
+    text-align: center;
 }
