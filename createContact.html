@@ -11,10 +11,17 @@
              <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Play:wght@400;700&display=swap" rel="stylesheet">
              <link rel = "icon" href = "favicon.ico">
              <link rel="icon" href="http://example.com/favicon.gif" type="image/gif" />
+             <script type="text/javascript" src="js/code.js"></script>
+             <script>
+                document.addEventListener('DOMContentLoaded', function() 
+                    {
+                        readCookie();
+                    }, false);
+                </script>
          </head>
          <body class = "bodyBackground">
              <div class = "navBar"></div>
-             <h3>Hello<em>"User Name Here"</em></h3>
+             <h3>Hello<em id = Greating> "User Name Here"</em></h3>
              <div class = "Rectangle"></div>
              <form>
                  <h1>Add your contact</h1>
@@ -31,11 +38,11 @@
                  <p class = "phone">Phone number:</p>
                  <input class = "bar" id = "phoneNumber" type = "tel" style = "margin-right: 46px;">
                  <br>
-                 <button class = "addContact" id = "addContact" onclick = "addContact()">Add contact</button>
+                 <button type="button" class = "addContact" id = "addContact" onclick = "addContact()">Add contact</button>
              </form>
              <a href = "contacts.html">
                  <button class = "return">Return to contacts</button>
              </a>
-             <button>Sign out</button>
+             <button onclick = "doLogout()">Sign out</button>
          </body>
      </html>
