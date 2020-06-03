@@ -23,10 +23,10 @@
   	else
   	{
 		// 5 - Generate SQL code to search the contact in the database
-		$sql = "SELECT id, first_name, last_name, email, phone 
+		$sql = "SELECT id, first_name, last_name, email, phone, date
 				FROM Contacts
 				WHERE user_id = " . $userID . "
-				AND (first_name LIKE '%" . $keyword . "%' OR last_name LIKE '%" . $keyword . "%' OR email LIKE '%" . $keyword . "%')
+				AND (first_name LIKE '%" . $keyword . "%' OR last_name LIKE '%" . $keyword . "%' OR email LIKE '%" . $keyword . "%' OR phone LIKE '%" . $keyword . "%')
 				ORDER BY first_name ASC";
 		// Get the result of the search
 		$result = $conn->query($sql);
@@ -42,6 +42,7 @@
 					'lastName' => $row['last_name'],
 					'email' => $row['email'],
 					'phone' => $row['phone'],
+					'date' => $row['date'],
 					'contactId' => $row['id']
 					]);
 			}
