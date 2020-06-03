@@ -347,7 +347,14 @@ function performSearch(search) {
 			var phoneTr = makeRow("Phone #:", result.phone, "phone");
 			table.appendChild(phoneTr);
 
-			var dateTr = makeRow("Date created:", result.date, "date")
+			var dateTr = document.createElement("tr");
+			var labelTd = document.createElement("td");
+			labelTd.innerText = "Date created:";
+			dateTr.appendChild(labelTd);
+			var valueTd = document.createElement("td");
+			valueTd.innerText = result.date;
+			dateTr.appendChild(valueTd);
+
 			table.append(dateTr);
 			content.appendChild(table);
 			var buttons = document.createElement("div");
