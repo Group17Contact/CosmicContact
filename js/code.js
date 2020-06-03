@@ -346,6 +346,9 @@ function performSearch(search) {
 
 			var phoneTr = makeRow("Phone #:", result.phone, "phone");
 			table.appendChild(phoneTr);
+
+			var dateTr = makeRow("Date created:", result.date, "date")
+			table.append(dateTr);
 			content.appendChild(table);
 			var buttons = document.createElement("div");
 			var deleteButton = document.createElement("button");

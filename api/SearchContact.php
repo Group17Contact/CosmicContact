@@ -42,6 +42,7 @@
 					'lastName' => $row['last_name'],
 					'email' => $row['email'],
 					'phone' => $row['phone'],
+					'date' => $row['date'],
 					'contactId' => $row['id']
 					]);
 			}
