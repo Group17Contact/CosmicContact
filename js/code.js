@@ -182,7 +182,7 @@ function addContact()
    // Prepare to send the contact info to the server
    var jsonPayload = '{"userId" : "' + userId + '", "firstname" : "' + fName + '", "lastname" : "' + lName + '", "email" : "' + email + '", "phone" : "' + phone + '"}';
    var url = urlBase + '/api/AddContact.' + extension;
-alert(jsonPayload);
+
    // Create and open a connection to the server
    var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -245,18 +245,18 @@ function retrieveContacts()
             //contactId = jsonObject.tableId;
             if(jsonObject.error.length > 0)
 			   {
-				   document.getElementById("contactSearchResult").innerHTML = "No contacts were found.";
+				   document.getElementById("searchContactResult").innerHTML = "No contacts were found.";
 				   return;
 			   }
 
             var i;
             for (i = 0; i < jsonObject.firstName.length; i++)
 				{
-               var table = document.getElementById('gibberish');
+               var table = document.getElementById('table');
                var tr = document.createElement("tr");
                s = jsonObject.userId[i];
 
-               tr.setAttribute("id", "insertedTable1"+s);
+               tr.setAttribute("id", "insertedTable1" + s);
                tr.innerHTML = '<td>' + jsonObject.firstName[i] + '</td>' +
                '<td>' + jsonObject.lastName[i] + '</td>' +
                '<td>' + jsonObject.email[i] + '</td>' +
@@ -275,10 +275,10 @@ function retrieveContacts()
 function searchContact()
 {
    var srch = document.getElementById("searchContact").value;
-	document.getElementById("contactSearchResult").innerHTML = "";
+	document.getElementById("searchContactResult").innerHTML = "";
 
 	var jsonPayload = '{"search" : "' + srch + '", "userId" : "' + userId + '"}';
-	var url = urlBase + 'api/SearchContacts.' + extension;
+	var url = urlBase + 'api/SearchContact.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -292,12 +292,12 @@ function searchContact()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-			   document.getElementById("contactSearchResult").innerHTML = "Contact(s) found";
+			   document.getElementById("searchContactResult").innerHTML = "Contact(s) found";
 
 				var jsonObject = JSON.parse(xhr.responseText);
 				if (jsonObject.error.length > 0)
 				{
-				   document.getElementById("contactSearchResult").innerHTML = "No contacts were found.";
+				   document.getElementById("searchContactResult").innerHTML = "No contacts were found.";
 				   return;
 				}
 
@@ -306,11 +306,11 @@ function searchContact()
 				var i;
 				for (i = 0; i < jsonObject.firstName.length; i++)
 				{
-               var table = document.getElementById('gibberish2');
+               var table = document.getElementById('table2');
                var tr = document.createElement("tr");
                s = jsonObject.userId[i];
 
-               tr.setAttribute("id", "insertedTable2"+s);
+               tr.setAttribute("id", "insertedTable2" + s);
                tr.innerHTML = '<td>' + jsonObject.firstName[i] + '</td>' +
                '<td>' + jsonObject.lastName[i] + '</td>' +
                '<td>' + jsonObject.email[i] + '</td>' +
@@ -324,14 +324,14 @@ function searchContact()
 	}
 	catch(err)
 	{
-		document.getElementById("contactSearchResult").innerHTML = err.message;
+		document.getElementById("searchContactResult").innerHTML = err.message;
 	}
 }
 
 function deleteTable()
 {
-   //document.getElementById("gibberish").remove();
-   var mainContactTable = document.getElementById("gibberish");
+   //document.getElementById("table").remove();
+   var mainContactTable = document.getElementById("table");
    mainContactTable.parentNode.removeChild(mainContactTable);
 }
 
@@ -342,7 +342,7 @@ function deleteContact(id)
    contactId = id;
 
    var jsonPayload = '{"tableId" : "' + contactId + '", "UserId" : "' + userId + '"}';
-	var url = urlBase + 'api/deleteContact.' + extension;
+	var url = urlBase + 'api/DeleteContact.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -367,7 +367,7 @@ function deleteContact(id)
             //var jsonObject = JSON.parse(xhr.responseText);
 
             // Deleteing table
-            mainContactTable = document.getElementById("gibberish");
+            mainContactTable = document.getElementById("table");
             mainContactTable.parentNode.removeChild(mainContactTable);
 
             var mainContact = document.getElementById("contacts");
@@ -375,7 +375,7 @@ function deleteContact(id)
             var table = document.createElement("table");
             // tr.setAttribute("id", "insertedTable2"+s);
             table.setAttribute("class", "contacts");
-            table.setAttribute("id", "gibberish");
+            table.setAttribute("id", "table");
             table.setAttribute("border", "1");
             table.innerHTML = '<tr>' + '<th>FirstName</th>' + '<th>Last Name</th>' + '<th>E-Mail</th>' + '<th>Phone Number</th>'
             '</tr>';
@@ -387,6 +387,6 @@ function deleteContact(id)
 	}
 	catch(err)
 	{
-		document.getElementById("contactSearchResult").innerHTML = err.message;
+		document.getElementById("searchContactResult").innerHTML = err.message;
 	}
 }
