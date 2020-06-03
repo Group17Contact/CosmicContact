@@ -26,7 +26,7 @@
 		$sql = "SELECT id, first_name, last_name, email, phone 
 				FROM Contacts
 				WHERE user_id = " . $userID . "
-				AND (first_name LIKE '%" . $keyword . "%' OR last_name LIKE '%" . $keyword . "%' OR email LIKE '%" . $keyword . "%')
+				AND (first_name LIKE '%" . $keyword . "%' OR last_name LIKE '%" . $keyword . "%' OR email LIKE '%" . $keyword . "%' OR phone LIKE '%" . $keyword . "%')
 				ORDER BY first_name ASC";
 		// Get the result of the search
 		$result = $conn->query($sql);
