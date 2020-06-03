@@ -177,12 +177,12 @@ function addContact()
    var lName = document.getElementById("lastName").value;
    var email = document.getElementById("email").value;
    var phone = document.getElementById("phoneNumber").value;
-   document.getElementById("contactAddResult").innerHTML = "";
+   document.getElementById("addContactResult").innerHTML = "";
 
    // Prepare to send the contact info to the server
-   var jsonPayload = '{"firstname" : "' + fName + '", "lastname" : "' + lName + '", "email" : "' + email + '", "phone" : "' + phone + '"}';
+   var jsonPayload = '{"userId" : "' + userId + '", "firstname" : "' + fName + '", "lastname" : "' + lName + '", "email" : "' + email + '", "phone" : "' + phone + '"}';
    var url = urlBase + '/api/AddContact.' + extension;
-
+alert(jsonPayload);
    // Create and open a connection to the server
    var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -211,7 +211,7 @@ function addContact()
             document.getElementById("lastname").value = "";
 				document.getElementById("email").value = "";
             document.getElementById("phone").value = "";
-            document.getElementById("contactAddResult").innerHTML = "Contact has been added";
+            document.getElementById("addContactResult").innerHTML = "Contact has been added";
             // deleteTable();
             // retrieveContacts();
 			}
@@ -219,7 +219,7 @@ function addContact()
 	}
 	catch(err)
 	{
-		document.getElementById("contactAddResult").innerHTML = err.message;
+		document.getElementById("addContactResult").innerHTML = err.message;
 	}
 }
 
