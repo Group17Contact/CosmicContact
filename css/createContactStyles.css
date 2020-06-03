@@ -178,15 +178,15 @@ button:hover {
 }
 
 /* Email field positioning in createContact.html */
-/* .email {
-    margin-right: 10px;
-    margin-left: 54px; 
-}  */
+.email {
+    /* margin-right: 10px;
+    margin-left: 54px; */
+}
 
 /* Phone field positioning in createContact.html */
-/* .phone {
+.phone {
     margin-left: 5px;
-} */
+}
 
 h1 {
     color: whitesmoke;
@@ -220,11 +220,11 @@ h1 {
 
 input {
     border-radius: 60px;
-    width: 100%;
-    height: 25px;
+    width: 30%;
+    height: 35px;
     text-align: center;
     font-family: 'Play', sans-serif;
-    font-size: larger;
+    font-size: x-large;
     border-style: solid;
     border-width: 3px;
     border-color: black;
@@ -270,11 +270,6 @@ p {
   td {
       font-family: 'Play', sans-serif;
       color: whitesmoke;
-      text-align: center;
-  }
-
-  table {
-      width: 100%;
   }
 
   /* Handles styling for button that expands to contact info */
@@ -319,7 +314,6 @@ td {
     position: static;
    /* width: 100%;
     height: 30px;*/
-    width: 15%;
     font-size: medium;
     background-color: #f3c623;
 }
@@ -331,8 +325,7 @@ td {
 .deleteContact {
     column-span: all;
     position: static;
-    width: 30%;
-    /* width: initial; */
+    width: initial;
     /*width: 100%;*/
 }
 
