@@ -188,11 +188,6 @@ function addContact()
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
-   try
-	{
-      // Send the json payload
-      xhr.send(jsonPayload);
-
 		xhr.onreadystatechange = function()
 		{
 			if (this.readyState == 4 && this.status == 200)
@@ -214,13 +209,14 @@ function addContact()
             document.getElementById("addContactResult").innerHTML = "Contact has been added";
             // deleteTable();
             // retrieveContacts();
+			}else{
+				document.getElementById("addContactResult").innerHTML = err.message;
 			}
+      // Send the json payload
 		};
+		xhr.send(jsonPayload);
 	}
-	catch(err)
-	{
-		document.getElementById("addContactResult").innerHTML = err.message;
-	}
+		
 }
 function makeRow(label, value, className) {
 	var tr = document.createElement("tr");
