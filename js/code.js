@@ -186,31 +186,26 @@ function addContact()
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
-	try
+	xhr.onreadystatechange = function()
 	{
-		xhr.onreadystatechange = function()
+		if (this.readyState == 4 && this.status == 200)
 		{
-			if (this.readyState == 4 && this.status == 200)
-			{
-				var res = JSON.parse(xhr.responseText);
-				if (!res.error) {
-					// Clear the add contact fields
-					document.getElementById("firstName").value = "";
-					document.getElementById("lastName").value = "";
-					document.getElementById("email").value = "";
-					document.getElementById("phoneNumber").value = "";
-				}
-
-				// Display feedback
-				document.getElementById("addContactResult").innerText = res.error || res.Message;
+			var res = JSON.parse(xhr.responseText);
+			if (!res.error) {
+				// Clear the add contact fields
+				document.getElementById("firstName").value = "";
+				document.getElementById("lastName").value = "";
+				document.getElementById("email").value = "";
+				document.getElementById("phoneNumber").value = "";
 			}
-      // Send the json payload
-		};
-		// Send the json payload
-		xhr.send(jsonPayload);
 
-
-	}
+			// Display feedback
+			document.getElementById("addContactResult").innerText = res.error || res.Message;
+		}
+	// Send the json payload
+	};
+	// Send the json payload
+	xhr.send(jsonPayload);
 		
 }
 function makeRow(label, value, className) {
