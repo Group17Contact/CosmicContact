@@ -1,0 +1,40 @@
+<!-- contacts.html is the page that displays all the users recorded contacts. It also allows the user to delete, search, and create contacts.
+     The CSS file used is contactStyles.css and there is a link tag that imports some fonts from google fonts. -->
+
+     <!DOCTYPE html>
+     <html>
+         <head>
+             <meta charset = "utf-8">
+             <title>CosmicContact.space</title>
+             <link rel = "stylesheet" href = "css/contactStyles.css">
+             <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Play:wght@400;700&display=swap" rel="stylesheet">
+             <link rel = "icon" href = "favicon.ico">
+             <script type="text/javascript" src="js/code.js"></script>
+         </head>
+         <body>
+             <!-- This is the blueish background that should also appear when there are
+                  one or more contacts. -->
+             <div onclick = "appear()" class = "Rectangle2"></div>
+             <div class = "navBar">
+             </div>
+             <h3>Hello <em id = Greating> "User Name Here"</em></h3>
+             <input id="searchInput" class = "searchBar" type = "text" placeholder = "Search your contacts">
+             <button class = "searchButton" onclick="onClickSearch()">Search</button>
+             <a href = "/create">
+                 <button class = "createContact">Create Contact</button>
+     
+             </a>
+             <button onclick = "doLogout()">Sign out</button>
+             <!-- This is the div that I was thinking we could make appear when there are 1 or more contacts -->
+             <div id = "searchResultsDiv" class = "scrollBox">
+             </div> 
+             <script>
+                 document.addEventListener('DOMContentLoaded', function() 
+                     {
+                         readCookie();
+                         performSearch("");
+                     }, false);
+                 </script>
+         </body>
+     </html>
+     

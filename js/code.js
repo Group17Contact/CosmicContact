@@ -48,7 +48,7 @@ function doLogIn()
 
 			saveCookie();
 
-			location.href = "contacts.html";
+			location.href = "/contacts";
 		};
 
 		// Send the json payload to the server
@@ -70,7 +70,7 @@ function doLogout()
 	//document.getElementById("firstName").value = "";
 	//document.getElementById("lastName").value = "";
 	document.cookie = "userData= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-	window.location.href = "index.html";
+	window.location.href = "/";
 }
 
 function doRegistration()
@@ -119,7 +119,7 @@ function doRegistration()
 
 			saveCookie();
 
-			window.location.href = "contacts.html";
+			window.location.href = "/contacts";
 		};
 
 		// Send the json payload to the server
@@ -160,7 +160,7 @@ function readCookie()
 
 	if (userId < 0)
 	{
-		window.location.href = "index.html";
+		window.location.href = "/";
 	}
 	else
 	{
