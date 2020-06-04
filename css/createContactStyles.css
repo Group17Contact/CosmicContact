@@ -165,3 +165,8 @@ p {
     color: whitesmoke;
     margin-right: 10px;
 }
+
+#addContactResult {
+    color: red;
+    font-size: xx-large;
+}

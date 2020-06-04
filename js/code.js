@@ -13,11 +13,9 @@ function doLogIn()
 
 	// Get the username and password typed in by the user
 	var username = document.getElementById("loginName").value;
-	var password = document.getElementById("loginPassword").value;
-	//var hash = md5( password );
+	var password = md5(document.getElementById("loginPassword").value);
 
 	// Setup the json that will be sent to the server and the url
-	//var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
 	var jsonPayload = JSON.stringify({username:username, password:password});
 	var url = urlBase + '/api/Login.' + extension;
 
@@ -85,7 +83,7 @@ function doRegistration()
 	var firstName = document.getElementById("firstName").value;
 	var lastName = document.getElementById("lastName").value;
 	var username = document.getElementById("username").value;
-	var password = document.getElementById("userPassword").value;
+	var password = md5(document.getElementById("userPassword").value);
 
    // Setup the json that will be sent to the server and the url
    var jsonPayload = JSON.stringify({firstName:firstName, lastName:lastName, username:username, password:password});
@@ -188,34 +186,29 @@ function addContact()
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
-   try
+	try
 	{
-      // Send the json payload
-      xhr.send(jsonPayload);
-
 		xhr.onreadystatechange = function()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-            var table = document.getElementById('table');
-            var tr = document.createElement("tr");
+				var res = JSON.parse(xhr.responseText);
+				if (!res.error) {
+					// Clear the add contact fields
+					document.getElementById("firstName").value = "";
+					document.getElementById("lastName").value = "";
+					document.getElementById("email").value = "";
+					document.getElementById("phoneNumber").value = "";
+				}
 
-            tr.innerHTML = '<td>' + document.getElementById("firstname").value + '</td>' +
-            '<td>' + document.getElementById("lastname").value + '</td>' +
-            '<td>' + document.getElementById("email").value + '</td>' +
-            '<td>' + document.getElementById("phone").value + '</td>';
-            table.appendChild(tr);
-
-            // Clear the add contact fields
-            document.getElementById("firstname").value = "";
-            document.getElementById("lastname").value = "";
-				document.getElementById("email").value = "";
-            document.getElementById("phone").value = "";
-            document.getElementById("addContactResult").innerHTML = "Contact has been added";
-            // deleteTable();
-            // retrieveContacts();
+				// Display feedback
+				document.getElementById("addContactResult").innerText = res.error || res.Message;
 			}
 		};
+		// Send the json payload
+		xhr.send(jsonPayload);
+
+
 	}
 	catch(err)
 	{
@@ -298,9 +291,10 @@ function setupEdit(entry, editBtn, contactId) {
 			xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 			xhr.onload = function () {
 				var res = JSON.parse(xhr.responseText);
+				var contactSummary = entry.getElementsByClassName("contactSummary")[0];
+				contactSummary.innerText = firstNameIn.value + " " + lastNameIn.value;
 				editBtn.disabled = false;
 				editBtn.innerText = "Edit";
-
 			};
 			xhr.send(JSON.stringify(data));
 		}
@@ -329,6 +323,7 @@ function performSearch(search) {
 			var entry = document.createElement("div");
 			var a = document.createElement("button");
 			a.classList.add("collaps");
+			a.classList.add("contactSummary");
 			a.innerText = result.firstName + " " + result.lastName;
 			entry.appendChild(a);
 			var content = document.createElement("div");

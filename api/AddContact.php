@@ -36,7 +36,7 @@
         if ($result->num_rows > 0)
         {
             header('Content-type: application/json');
-            echo '{"Message":  "'. $firstname .'  '.$lastname . ' already exists in your list"}';
+            echo '{"error":  "'. $firstname .'  '.$lastname . ' already exists in your list"}';
             $conn->close();
             return;
         }
@@ -55,7 +55,7 @@
     if ($conn->query($sql) != TRUE)
     {
         header('Content-type: application/json');
-        echo '{"Error Message":"' . $conn->error . '"}';
+        echo '{"error":"' . $conn->error . '"}';
         $conn->close();
     }
     // Contact was added successfully
