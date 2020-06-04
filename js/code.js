@@ -195,17 +195,17 @@ function addContact()
             var table = document.getElementById('table');
             var tr = document.createElement("tr");
 
-            tr.innerHTML = '<td>' + document.getElementById("firstname").value + '</td>' +
-            '<td>' + document.getElementById("lastname").value + '</td>' +
+            tr.innerHTML = '<td>' + document.getElementById("firstName").value + '</td>' +
+            '<td>' + document.getElementById("lastName").value + '</td>' +
             '<td>' + document.getElementById("email").value + '</td>' +
             '<td>' + document.getElementById("phone").value + '</td>';
             table.appendChild(tr);
 
             // Clear the add contact fields
-            document.getElementById("firstname").value = "";
-            document.getElementById("lastname").value = "";
+            document.getElementById("firstName").value = "";
+            document.getElementById("firstName").value = "";
 				document.getElementById("email").value = "";
-            document.getElementById("phone").value = "";
+            document.getElementById("phoneNumber").value = "";
             document.getElementById("addContactResult").innerHTML = "Contact has been added";
             // deleteTable();
             // retrieveContacts();
