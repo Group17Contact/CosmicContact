@@ -204,16 +204,14 @@ function addContact()
 				// Display feedback
 				document.getElementById("addContactResult").innerText = res.error || res.Message;
 			}
+      // Send the json payload
 		};
 		// Send the json payload
 		xhr.send(jsonPayload);
 
 
 	}
-	catch(err)
-	{
-		document.getElementById("addContactResult").innerHTML = err.message;
-	}
+		
 }
 function makeRow(label, value, className) {
 	var tr = document.createElement("tr");
